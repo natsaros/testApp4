@@ -62,10 +62,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="64" selection-start="137" selection-end="142" vertical-scroll-proportion="-3.2692308">
+            <state line="5" column="67" selection-start="140" selection-end="140" vertical-scroll-proportion="0.10059172">
               <folding />
             </state>
           </provider>
@@ -82,10 +82,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="68" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.6245695">
+            <state line="32" column="68" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -102,8 +102,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -407,16 +407,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="64" selection-start="137" selection-end="142" vertical-scroll-proportion="-3.2692308">
+        <state line="32" column="68" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="68" selection-start="1383" selection-end="1383" vertical-scroll-proportion="0.6245695">
+        <state line="5" column="67" selection-start="140" selection-end="140" vertical-scroll-proportion="0.10059172">
           <folding />
         </state>
       </provider>
