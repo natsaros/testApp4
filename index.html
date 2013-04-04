@@ -1,40 +1,182 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Notification Example</title>
+    <title>Test App3</title>
 
+    <script type="text/javascript" charset="utf-8" src="lib/jquery-1.9.1.min.js "></script>
     <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Wait for Cordova to load
-    //
-    document.addEventListener("deviceready", onDeviceReady, false);
 
-    // Cordova is ready
+    var db;
+
+
+    document.addEventListener("deviceready",onDeviceReady,false);
+
+    // Cordova is ready to be used!
     //
     function onDeviceReady() {
-        // Empty
+       // Database
+        initDB();
     }
 
-    // process the confirmation dialog result
-    function onConfirm(buttonIndex) {
-        alert('You selected button ' + buttonIndex);
+
+    errorHandler = function (transaction, error) {
+        // returns true to rollback the transaction
+        return true;
     }
 
-    // Show a custom confirmation dialog
+    // null db data handler
+    nullDataHandler = function (transaction, results) { }
+
+
+    function initDB()
+    {
+        db = window.openDatabase("Database", "1.0", "Cordova Demo", 200000);
+        db.transaction(populateDB, errorCB, successCB);
+
+    }
+
+
+
+        // Transaction success callback
+        //
+        function successCB() {
+//            alert("success Init DB");
+            showConfirm("success Init DB","successCB");
+        }
+
+
+
+    // create tables for the database ************
+
+
+
+        // Populate the database
     //
-    function showConfirm() {
-        navigator.notification.confirm(
-            'You are the winner!',  // message
-            onConfirm,              // callback to invoke with index of button pressed
-            'Game Over',            // title
-            'Restart,Exit'          // buttonLabels
-        );
+    function populateDB(tx) {
+//         tx.executeSql('DROP TABLE IF EXISTS DEMO');
+         tx.executeSql('CREATE TABLE IF NOT EXISTS DEMO (id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, title TEXT, type TEXT,cost TEXT)');
     }
+
+
+
+
+    function getDBData()
+    {
+        db.transaction(queryDB, errorCB);
+    }
+
+
+
+
+    function insertDBData()
+       {
+           db.transaction(queryDBInsert, errorCB);
+       }
+
+
+    function queryDBInsert(tx)
+    {
+
+        var title = $('#title').val();
+        var type = $('#type').val();
+        var cost = $('#cost').val();
+
+        tx.executeSql('INSERT INTO DEMO (title ,type ,cost) VALUES ("'+title+'","'+type+'","'+cost+'")');
+
+        showConfirm("Data Inserted","queryDBInsert");
+
+    }
+
+
+
+
+
+
+
+     function queryDB(tx)
+     {
+         tx.executeSql('SELECT * FROM DEMO', [], querySuccess, errorCB);
+     }
+
+     // Query the success callback
+
+     function querySuccess(tx, results)
+      {
+       var len = results.rows.length;
+
+          $("#dbResults").html("");
+
+         for (var i=0; i<len; i++){
+             $("#dbResults").append("Row = " + i + " id = " + results.rows.item(i).id + " title =  " + results.rows.item(i).title+"<br>");
+         }
+
+     }
+
+     // Transaction error callback
+
+     function errorCB(err)
+      {
+//         console.log("Error processing SQL: "+err.code);
+         showConfirm("Error processing SQL: "+err.code,"errorCB");
+
+
+     }
+
+
+
+
+     // process the confirmation dialog result
+         function onConfirm(button) {
+
+         }
+
+         // Show a custom confirmation dialog
+         //
+         function showConfirm(message,title) {
+             navigator.notification.confirm(
+                   message,  // message
+                 onConfirm,              // callback to invoke with index of button pressed
+                     title,            // title
+                 'ok,no'          // buttonLabels
+             );
+         }
+
+
+
+
+
 
     </script>
   </head>
   <body>
-    <p><a href="#" onclick="showConfirm(); return false;">Show Confirm</a></p>
+      <div id="content" >
+
+          title: <input id="title" value="" />  <br>
+          title: <input id="type" value="" />  <br>
+          title: <input id="cost" value="" />  <br><br><br>
+
+          <button onclick="insertDBData();">insertDBData</button> <br>
+          <br>
+
+
+          <br><br><br>
+
+          <button onclick="getDBData();">getDBData</button> <br>
+
+
+
+          <br>
+          dbResults:
+          <br>
+
+          <div id="dbResults"></div>
+
+
+
+
+
+      </div>
   </body>
 </html>

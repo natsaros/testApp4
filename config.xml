@@ -49,6 +49,9 @@
 
             <plugin name="Notification" value="org.apache.cordova.Notification"/>
 
+            <plugin name="Storage" value="org.apache.cordova.Storage" />
+            <plugin name="Notification" value="org.apache.cordova.Notification"/>
+
             <content src="index.html" />
 
             <access origin="*" />
