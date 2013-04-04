@@ -79,7 +79,7 @@
       #map-canvas { height: 100% }
     </style>
       <script type="text/javascript" charset="utf-8" src="lib/jquery-1.9.1.min.js "></script>
-      <script type="text/javascript" charset="utf-8" src="cordova-2.1.0.js"></script>
+      <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
     <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg_RAseFHEXWh6I_RzBEptoZjHbZEqmW0&sensor=true">
     </script>
@@ -155,8 +155,9 @@
           //
           function onDeviceReady() {
 
-              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+//              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
 
+              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation,{enableHighAccuracy:true});
 
           }
 
