@@ -60,6 +60,8 @@
             <plugin name="Geolocation" value="CDVLocation" />
             <plugin name="Geolocation" value="org.apache.cordova.GeoBroker" />
 
+            <feature name="http://api.phonegap.com/1.0/geolocation"/>
+
             <content src="index.html" />
 
             <access origin="*" />
