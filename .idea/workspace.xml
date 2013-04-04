@@ -63,14 +63,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="67" selection-start="221" selection-end="221" vertical-scroll-proportion="-3.9230769">
-              <folding>
-                <marker date="1365077191467" expanded="true" signature="1276:1388" placeholder="CREATE TABLE..DEMO..." />
-                <marker date="1365077191467" expanded="true" signature="1968:1986" placeholder="SELECT * FRO..DEMO..." />
-              </folding>
+            <state line="61" column="7" selection-start="1676" selection-end="1676" vertical-scroll-proportion="1.227219">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="config.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="3989" selection-end="4143" vertical-scroll-proportion="0.78530425">
+            <state line="57" column="12" selection-start="4244" selection-end="4244" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -142,8 +139,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/js/index.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/config.xml" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -494,19 +491,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/config.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="67" selection-start="221" selection-end="221" vertical-scroll-proportion="-3.9230769">
-          <folding>
-            <marker date="1365077191467" expanded="true" signature="1276:1388" placeholder="CREATE TABLE..DEMO..." />
-            <marker date="1365077191467" expanded="true" signature="1968:1986" placeholder="SELECT * FRO..DEMO..." />
-          </folding>
+        <state line="57" column="12" selection-start="4244" selection-end="4244" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.xml">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="3989" selection-end="4143" vertical-scroll-proportion="0.78530425">
+        <state line="61" column="7" selection-start="1676" selection-end="1676" vertical-scroll-proportion="1.227219">
           <folding />
         </state>
       </provider>
