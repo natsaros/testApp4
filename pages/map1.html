@@ -1,0 +1,39 @@
+<div data-role="page" class="page-map1">
+
+    <div data-role="header">
+        <h1>jQuery Mobile</h1>
+    </div>
+
+    <div data-role="content">
+
+    <h2>Map</h2>
+
+    <div id="map1" class="gmap"></div>
+
+    <script type="text/javascript">
+        var map1, latlng1, options1;
+        function initialize() {
+
+            latlng1 = new google.maps.LatLng(40.716948, -74.003563);
+            options1 = { zoom: 14, center: latlng1, mapTypeId: google.maps.MapTypeId.ROADMAP };
+            map1 = new google.maps.Map(document.getElementById("map1"), options1);
+
+        }
+        $('.page-map1').live("pagecreate", function() {
+
+            initialize();
+
+        });
+
+        $('.page-map1').live('pageshow',function(){
+
+            //console.log("test");
+            google.maps.event.trigger(map1, 'resize');
+            map1.setOptions(options1);
+
+        });
+
+    </script>
+
+    </div>
+</div>

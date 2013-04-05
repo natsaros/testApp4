@@ -1,0 +1,171 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+  <!--<head>-->
+    <!--<title>Acceleration Example</title>-->
+
+    <!--<script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>-->
+    <!--<script type="text/javascript" charset="utf-8">-->
+
+    <!--// The watch id references the current `watchAcceleration`-->
+    <!--var watchID = null;-->
+
+    <!--// Wait for Cordova to load-->
+    <!--//-->
+    <!--document.addEventListener("deviceready", onDeviceReady, false);-->
+
+    <!--// Cordova is ready-->
+    <!--//-->
+    <!--function onDeviceReady() {-->
+        <!--startWatch();-->
+    <!--}-->
+
+    <!--// Start watching the acceleration-->
+    <!--//-->
+    <!--function startWatch() {-->
+
+        <!--// Update acceleration every 3 seconds-->
+        <!--var options = { frequency: 3000 };-->
+
+        <!--watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, options);-->
+    <!--}-->
+
+    <!--// Stop watching the acceleration-->
+    <!--//-->
+    <!--function stopWatch() {-->
+        <!--if (watchID) {-->
+            <!--navigator.accelerometer.clearWatch(watchID);-->
+            <!--watchID = null;-->
+        <!--}-->
+    <!--}-->
+
+    <!--// onSuccess: Get a snapshot of the current acceleration-->
+    <!--//-->
+    <!--function onSuccess(acceleration) {-->
+        <!--var element = document.getElementById('accelerometer');-->
+        <!--element.innerHTML = 'Acceleration X: ' + acceleration.x + '<br />' +-->
+                            <!--'Acceleration Y: ' + acceleration.y + '<br />' +-->
+                            <!--'Acceleration Z: ' + acceleration.z + '<br />' +-->
+                            <!--'Timestamp: '      + acceleration.timestamp + '<br />';-->
+    <!--}-->
+
+    <!--// onError: Failed to get the acceleration-->
+    <!--//-->
+    <!--function onError() {-->
+        <!--alert('onError!');-->
+    <!--}-->
+
+    <!--</script>-->
+  <!--</head>-->
+  <!--<body>-->
+    <!--<div id="accelerometer">Waiting for accelerometer...</div>-->
+  <!--</body>-->
+<!--</html>-->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+        <!---->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 100% }
+    </style>
+      <script type="text/javascript" charset="utf-8" src="lib/jquery-1.9.1.min.js "></script>
+      <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
+    <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg_RAseFHEXWh6I_RzBEptoZjHbZEqmW0&sensor=true">
+    </script>
+    <script type="text/javascript">
+
+      var latitude;
+      var longitude;
+
+      function initializeMap() {
+          var mapOptions = {
+             zoom: 4,
+             center: new google.maps.LatLng(latitude, longitude),
+             mapTypeId: google.maps.MapTypeId.ROADMAP
+           };
+
+           var map = new google.maps.Map(document.getElementById('map-canvas'),
+               mapOptions);
+
+           var marker = new google.maps.Marker({
+             position: map.getCenter(),
+             map: map,
+             title: 'Click to zoom'
+           });
+
+           google.maps.event.addListener(map, 'center_changed', function() {
+             // 3 seconds after the center of the map has changed, pan back to the
+             // marker.
+             window.setTimeout(function() {
+               map.panTo(marker.getPosition());
+             }, 3000);
+           });
+
+           google.maps.event.addListener(marker, 'click', function() {
+             map.setZoom(8);
+             map.setCenter(marker.getPosition());
+           });
+      }
+
+
+
+                   // onSuccess Geolocation
+    //
+    function onSuccessGeolocation(position) {
+        var element = document.getElementById('geolocation');
+
+        latitude = position.coords.latitude;
+        longitude = position.coords.longitude;
+
+        alert("latitude "+latitude+" longitude "+longitude);
+
+        initializeMap();
+
+
+
+    }
+
+    // onError Callback receives a PositionError object
+    //
+    function onErrorGeolocation(error) {
+        alert('code: '    + error.code    + '\n' +
+                'message: ' + error.message + '\n');
+    }
+
+
+
+
+
+
+
+      document.addEventListener("deviceready",onDeviceReady,false);
+
+          // Cordova is ready to be used!
+          //
+          function onDeviceReady() {
+
+//              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+
+              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation,{enableHighAccuracy:true});
+
+          }
+
+
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"/>
+  </body>
+</html>
