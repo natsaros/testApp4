@@ -79,93 +79,17 @@
       #map-canvas { height: 100% }
     </style>
       <script type="text/javascript" charset="utf-8" src="lib/jquery-1.9.1.min.js "></script>
+
+
+
       <script type="text/javascript" charset="utf-8" src="cordova-2.3.0.js"></script>
-    <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCg_RAseFHEXWh6I_RzBEptoZjHbZEqmW0&sensor=true">
-    </script>
-    <script type="text/javascript">
 
-      var latitude;
-      var longitude;
-
-      function initializeMap() {
-          var mapOptions = {
-             zoom: 4,
-             center: new google.maps.LatLng(latitude, longitude),
-             mapTypeId: google.maps.MapTypeId.ROADMAP
-           };
-
-           var map = new google.maps.Map(document.getElementById('map-canvas'),
-               mapOptions);
-
-           var marker = new google.maps.Marker({
-             position: map.getCenter(),
-             map: map,
-             title: 'Click to zoom'
-           });
-
-           google.maps.event.addListener(map, 'center_changed', function() {
-             // 3 seconds after the center of the map has changed, pan back to the
-             // marker.
-             window.setTimeout(function() {
-               map.panTo(marker.getPosition());
-             }, 3000);
-           });
-
-           google.maps.event.addListener(marker, 'click', function() {
-             map.setZoom(8);
-             map.setCenter(marker.getPosition());
-           });
-      }
-
-
-
-                   // onSuccess Geolocation
-    //
-    function onSuccessGeolocation(position) {
-        var element = document.getElementById('geolocation');
-
-        latitude = position.coords.latitude;
-        longitude = position.coords.longitude;
-
-        alert("latitude "+latitude+" longitude "+longitude);
-
-        initializeMap();
-
-
-
-    }
-
-    // onError Callback receives a PositionError object
-    //
-    function onErrorGeolocation(error) {
-        alert('code: '    + error.code    + '\n' +
-                'message: ' + error.message + '\n');
-    }
-
-
-
-
-
-
-
-      document.addEventListener("deviceready",onDeviceReady,false);
-
-          // Cordova is ready to be used!
-          //
-          function onDeviceReady() {
-
-//              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
-
-              navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation,{enableHighAccuracy:true});
-
-          }
-
-
-
-    </script>
+      <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+      <link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <div id="map-canvas"/>
+
+    <script type="text/javascript" charset="utf-8" src="js/googlemap.js "></script>
   </body>
 </html>
